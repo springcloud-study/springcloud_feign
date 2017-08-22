@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: pay-service
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id:  ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+server:
+  port: 7070
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+
+logging:
+  level:
+    com.zhihao.miao.pay.service.UserService: debug
+
+
+
+
